@@ -15,7 +15,7 @@ import './App.css';
 function App() {
   return (
     <ThemeProvider>
-      <Router>
+      <Router basename="/2026-portfolio">
         <div className="App">
           <Navigation />
           <main className="main-content">

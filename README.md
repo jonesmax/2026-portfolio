@@ -57,29 +57,6 @@ npm run preview
 
 ## Deployment
 
-### GitHub Pages
-
-This project is configured for GitHub Pages deployment using GitHub Actions.
-
-1. **Enable GitHub Pages**:
-   - Go to your repository Settings → Pages
-   - Under "Build and deployment", select "Source: GitHub Actions"
-
-2. **Configure Base Path** (if needed):
-   - If deploying to `username.github.io/repo-name`, the base path is automatically configured
-   - If deploying to `username.github.io` (your main GitHub Pages site), update `vite.config.js`:
-     ```js
-     base: '/',
-     ```
-
-3. **Push to main branch**:
-   - The GitHub Actions workflow will automatically build and deploy your site
-   - Check the Actions tab to monitor the deployment
-
-4. **Access your site**:
-   - Your site will be available at `https://username.github.io/repo-name/` (or `https://username.github.io/` if using the main site)
-
-The deployment workflow is located at `.github/workflows/deploy.yml` and will run automatically on every push to the `main` branch.
 
 ## Project Structure
 
@@ -101,6 +78,3 @@ Update the following files with your information:
 - `src/pages/Contact.jsx` - Contact information
 - `src/components/Footer.jsx` - Social links
 
-## License
-
-MIT
