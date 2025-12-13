@@ -37,28 +37,22 @@ const Contact = () => {
 
   const contactMethods = [
     {
-      icon: '📧',
+      icon: <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail" style={{ width: 32, height: 32, objectFit: 'contain', verticalAlign: 'middle' }} />,
       title: 'Email',
-      value: 'john.doe@example.com',
-      link: 'mailto:john.doe@example.com'
+      value: 'maxwelljones2012@gmail.com',
+      link: 'mailto:maxwelljones2012@gmail.com'
     },
     {
-      icon: '💼',
+      icon: <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style={{ width: 32, height: 32, objectFit: 'contain', verticalAlign: 'middle', filter: 'invert(1) grayscale(1) contrast(100)' }} />,
       title: 'LinkedIn',
-      value: 'linkedin.com/in/johndoe',
-      link: 'https://linkedin.com/in/johndoe'
+      value: 'linkedin.com/in/maxwelljones2020',
+      link: 'https://www.linkedin.com/in/maxwelljones2020/'
     },
     {
-      icon: '🐙',
+      icon: <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" style={{ width: 32, height: 32, objectFit: 'contain', verticalAlign: 'middle', filter: 'invert(1) grayscale(1) contrast(100)' }} />,
       title: 'GitHub',
-      value: 'github.com/johndoe',
-      link: 'https://github.com/johndoe'
-    },
-    {
-      icon: '📱',
-      title: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      value: 'github.com/jonesmax',
+      link: 'https://github.com/jonesmax'
     }
   ];
 

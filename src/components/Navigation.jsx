@@ -28,7 +28,10 @@ const Navigation = () => {
       <div className="nav-container">
         <div className="nav-top-row-mobile">
           <Link to="/" className="nav-logo">
-            Portfolio
+            <div className="nav-logo-wrapper">
+              <img src="/logo.png" alt="Logo" className="nav-logo-img" />
+            </div>
+            <span>Maxwell Jones</span>
           </Link>
           <div className="nav-controls">
             <button 
@@ -50,7 +53,10 @@ const Navigation = () => {
           </div>
         </div>
         <Link to="/" className="nav-logo nav-logo-desktop">
-          Portfolio
+          <div className="nav-logo-wrapper">
+            <img src="/logo.png" alt="Logo" className="nav-logo-img" />
+          </div>
+          <span>Maxwell Jones</span>
         </Link>
         <div className="nav-right">
           <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>

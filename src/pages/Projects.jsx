@@ -3,59 +3,62 @@
  * @author Maxwell Jones
  */
 
+import { useState } from 'react';
+import ProjectModal from '../components/ProjectModal.jsx';
 import './Projects.css';
 
 const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description: 'A full-featured e-commerce platform with shopping cart, payment integration, and admin dashboard.',
-      technologies: ['React', 'JavaScript', 'Node.js', 'MongoDB'],
-      image: '🛒',
-      link: '#'
+      title: 'Soil',
+      description: 'A full stack React application with PHP Laravel backend and PostgreSQL database, designed for local golf courses to measure and monitor soil health. The platform performs complex calculations for chemical balance analysis and integrates with local weather APIs to provide comprehensive environmental data for optimal course maintenance.',
+      technologies: ['React', 'PHP', 'Laravel', 'PostgreSQL', 'JavaScript', 'REST APIs', 'Weather API'],
+      image: '🌱',
+      link: '#',
+      startDate: 'January 2024',
+      endDate: 'Ongoing',
+      status: 'Active',
+      images: []
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates and team collaboration features.',
-      technologies: ['React', 'Firebase', 'Material-UI'],
-      image: '📋',
-      link: '#'
+      title: 'School Tracker',
+      description: 'A dynamic dashboard application built with React, PHP Laravel, and PostgreSQL for managing academic life. Features custom schedule creation, assignment tracking with upcoming deadlines, and comprehensive grade monitoring. The UI-focused design provides an intuitive interface for students to stay organized and on top of their coursework.',
+      technologies: ['React', 'PHP', 'Laravel', 'PostgreSQL', 'JavaScript', 'REST APIs'],
+      image: '📚',
+      link: '#',
+      startDate: 'September 2023',
+      endDate: 'December 2023',
+      status: 'Completed',
+      images: ['/images/desktopProject.png', '/images/mobileProject.png']
     },
     {
       id: 3,
-      title: 'Weather Dashboard',
-      description: 'A beautiful weather dashboard with location-based forecasts and interactive charts.',
-      technologies: ['React', 'Chart.js', 'OpenWeather API'],
-      image: '🌤️',
-      link: '#'
-    },
-    {
-      id: 4,
-      title: 'Social Media Dashboard',
-      description: 'Analytics dashboard for social media metrics with data visualization and reporting.',
-      technologies: ['React', 'D3.js', 'Express'],
-      image: '📊',
-      link: '#'
-    },
-    {
-      id: 5,
-      title: 'Portfolio Website',
-      description: 'A responsive portfolio website showcasing projects and skills with smooth animations.',
-      technologies: ['React', 'CSS3', 'Framer Motion'],
-      image: '💼',
-      link: '#'
-    },
-    {
-      id: 6,
-      title: 'Recipe Finder App',
-      description: 'Discover and save recipes with advanced filtering, meal planning, and shopping list features.',
-      technologies: ['React', 'Redux', 'Spoonacular API'],
-      image: '🍳',
-      link: '#'
+      title: 'TTC Tracker',
+      description: 'A mobile-oriented transit tracking application using Toronto\'s public TTC API. Built with React, PHP Laravel, and PostgreSQL, this app tracks real-time arrival information for local transit options. Features push notifications to alert users of upcoming arrivals and focuses on learning public API integration while providing a seamless mobile experience.',
+      technologies: ['React', 'PHP', 'Laravel', 'PostgreSQL', 'JavaScript', 'REST APIs', 'TTC API', 'Push Notifications'],
+      image: '🚌',
+      link: '#',
+      startDate: 'June 2023',
+      endDate: 'August 2023',
+      status: 'Completed',
+      images: []
     }
   ];
+
+  const handleProjectClick = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
 
   return (
     <div className="projects-page">
@@ -80,14 +83,22 @@ const Projects = () => {
                 ))}
               </div>
               <div className="project-actions">
-                <a href={project.link} className="project-link" target="_blank" rel="noopener noreferrer">
-                  View Project →
-                </a>
+                <button 
+                  className="project-link"
+                  onClick={() => handleProjectClick(project)}
+                >
+                  View Project 
+                </button>
               </div>
             </div>
           </div>
         ))}
       </div>
+      <ProjectModal 
+        project={selectedProject} 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal}
+      />
     </div>
   );
 };

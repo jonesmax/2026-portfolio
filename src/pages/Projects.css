@@ -227,6 +227,12 @@
   align-items: center;
   gap: 0.5rem;
   position: relative;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .project-link::after {
