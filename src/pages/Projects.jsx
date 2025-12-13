@@ -5,6 +5,7 @@
 
 import { useState } from 'react';
 import ProjectModal from '../components/ProjectModal.jsx';
+import CodeBackground from '../components/CodeBackground.jsx';
 import './Projects.css';
 
 const Projects = () => {
@@ -25,7 +26,7 @@ const Projects = () => {
       images: []
     },
     {
-      id: 2,
+      id: 3,
       title: 'School Tracker',
       description: 'A dynamic dashboard application built with React, PHP Laravel, and PostgreSQL for managing academic life. Features custom schedule creation, assignment tracking with upcoming deadlines, and comprehensive grade monitoring. The UI-focused design provides an intuitive interface for students to stay organized and on top of their coursework.',
       technologies: ['React', 'PHP', 'Laravel', 'PostgreSQL', 'JavaScript', 'REST APIs'],
@@ -37,7 +38,7 @@ const Projects = () => {
       images: ['/images/desktopProject.png', '/images/mobileProject.png']
     },
     {
-      id: 3,
+      id: 4,
       title: 'TTC Tracker',
       description: 'A mobile-oriented transit tracking application using Toronto\'s public TTC API. Built with React, PHP Laravel, and PostgreSQL, this app tracks real-time arrival information for local transit options. Features push notifications to alert users of upcoming arrivals and focuses on learning public API integration while providing a seamless mobile experience.',
       technologies: ['React', 'PHP', 'Laravel', 'PostgreSQL', 'JavaScript', 'REST APIs', 'TTC API', 'Push Notifications'],
@@ -46,6 +47,18 @@ const Projects = () => {
       startDate: 'June 2023',
       endDate: 'August 2023',
       status: 'Completed',
+      images: []
+    },
+    {
+      id: 5,
+      title: '2026 Portfolio',
+      description: 'This portfolio website itself, built with React and Vite. Features a modern, responsive design with dark/light mode theming, interactive project modals with image galleries, and optimized for GitHub Pages deployment with a custom domain. The site showcases my frontend development skills through its implementation, demonstrating clean code architecture, component-based design, and attention to user experience and accessibility.',
+      technologies: ['React', 'JavaScript', 'Vite', 'CSS3', 'React Router', 'GitHub Pages', 'Responsive Design'],
+      image: '💼',
+      link: 'https://maxwelljones.ca',
+      startDate: 'January 2026',
+      endDate: 'Ongoing',
+      status: 'Active',
       images: []
     }
   ];
@@ -62,6 +75,7 @@ const Projects = () => {
 
   return (
     <div className="projects-page">
+      <CodeBackground />
       <div className="page-header">
         <h1>My Projects</h1>
         <p>Here are some of my recent works and projects</p>

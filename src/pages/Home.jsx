@@ -4,6 +4,7 @@
  */
 
 import { Link } from 'react-router-dom';
+import CodeBackground from '../components/CodeBackground.jsx';
 import './Home.css';
 
 const Home = () => {
@@ -25,6 +26,7 @@ const Home = () => {
   return (
     <div className="home-page">
       <section className="hero">
+        <CodeBackground />
         <div className="hero-content">
           <h1 className="hero-title">
             Hi, I'm <span className="highlight">Maxwell Jones</span>

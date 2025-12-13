@@ -84,6 +84,16 @@ const Navigation = () => {
                 Contact
               </Link>
             </li>
+            <li>
+              <a 
+                href="/resume.pdf" 
+                className="nav-link nav-resume"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Resume
+              </a>
+            </li>
           </ul>
           <div className="nav-controls-desktop">
             <button 

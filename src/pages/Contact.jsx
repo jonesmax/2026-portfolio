@@ -4,6 +4,7 @@
  */
 
 import { useState } from 'react';
+import CodeBackground from '../components/CodeBackground.jsx';
 import './Contact.css';
 
 const Contact = () => {
@@ -58,6 +59,7 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
+      <CodeBackground />
       <div className="page-header">
         <h1>Get In Touch</h1>
         <p>I'd love to hear from you. Send me a message!</p>

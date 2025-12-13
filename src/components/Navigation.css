@@ -128,6 +128,10 @@
   transform: translateY(-2px);
 }
 
+.nav-resume {
+  text-decoration: none;
+}
+
 .theme-toggle {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
@@ -244,6 +248,16 @@
 
   .nav-toggle {
     display: flex;
+  }
+
+  .theme-toggle,
+  .nav-toggle {
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .nav-menu.active {
