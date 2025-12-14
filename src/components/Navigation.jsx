@@ -10,6 +10,7 @@ import './Navigation.css';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hasBeenClicked, setHasBeenClicked] = useState(false);
   const location = useLocation();
   const { theme, toggleTheme } = useTheme();
 
@@ -23,6 +24,13 @@ const Navigation = () => {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
+  const handleThemeToggle = () => {
+    if (!hasBeenClicked) {
+      setHasBeenClicked(true);
+    }
+    toggleTheme();
+  };
+
   return (
     <nav className={`navbar ${isMenuOpen ? 'menu-open' : ''}`}>
       <div className="nav-container">
@@ -35,8 +43,8 @@ const Navigation = () => {
           </Link>
           <div className="nav-controls">
             <button 
-              className="theme-toggle"
-              onClick={toggleTheme}
+              className={`theme-toggle ${!hasBeenClicked ? 'jumping' : ''}`}
+              onClick={handleThemeToggle}
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? '☀️' : '🌙'}
@@ -97,8 +105,8 @@ const Navigation = () => {
           </ul>
           <div className="nav-controls-desktop">
             <button 
-              className="theme-toggle"
-              onClick={toggleTheme}
+              className={`theme-toggle ${!hasBeenClicked ? 'jumping' : ''}`}
+              onClick={handleThemeToggle}
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? '☀️' : '🌙'}

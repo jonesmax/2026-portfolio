@@ -146,10 +146,28 @@
   flex-shrink: 0;
 }
 
+.theme-toggle.jumping {
+  animation: jump 1s ease-in-out infinite;
+}
+
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 .theme-toggle:hover {
   background: var(--bg-tertiary);
   transform: scale(1.1);
   box-shadow: var(--shadow-md);
+}
+
+.theme-toggle.jumping:hover {
+  transform: scale(1.1) translateY(-8px);
+  animation: none;
 }
 
 .nav-toggle {

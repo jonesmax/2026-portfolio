@@ -12,7 +12,8 @@ const CodeBackground = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    const container = canvas?.parentElement;
+    if (!canvas || !container) return;
 
     const ctx = canvas.getContext('2d');
     let animationFrameId;
@@ -35,12 +36,17 @@ const CodeBackground = () => {
     const handleMouseMove = (e) => {
       if (isMobile) return;
       const rect = canvas.getBoundingClientRect();
+      // Calculate mouse position relative to canvas, even if event is from window
       mouseX = e.clientX - rect.left;
       mouseY = e.clientY - rect.top;
       setMousePos({ x: mouseX, y: mouseY });
     };
 
     if (!isMobile) {
+      // Attach to window so it works even when content blocks the canvas
+      window.addEventListener('mousemove', handleMouseMove);
+      // Also attach to container and canvas as additional listeners
+      container.addEventListener('mousemove', handleMouseMove);
       canvas.addEventListener('mousemove', handleMouseMove);
     }
 
@@ -133,6 +139,10 @@ const CodeBackground = () => {
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       if (!isMobile) {
+        window.removeEventListener('mousemove', handleMouseMove);
+        if (container) {
+          container.removeEventListener('mousemove', handleMouseMove);
+        }
         canvas.removeEventListener('mousemove', handleMouseMove);
       }
       cancelAnimationFrame(animationFrameId);

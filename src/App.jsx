@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import Navigation from './components/Navigation.jsx';
 import Footer from './components/Footer.jsx';
+import StickyMessage from './components/StickyMessage.jsx';
 import Home from './pages/Home.jsx';
 import Projects from './pages/Projects.jsx';
 import Contact from './pages/Contact.jsx';
@@ -26,6 +27,7 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          <StickyMessage />
         </div>
       </Router>
     </ThemeProvider>

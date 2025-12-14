@@ -3,11 +3,91 @@
  * @author Maxwell Jones
  */
 
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CodeBackground from '../components/CodeBackground.jsx';
 import './Home.css';
 
 const Home = () => {
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(true);
+  const [typedText, setTypedText] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+  
+  const lastParagraphFull = "While still developing, I regularly deliver technical and sales demonstrations, effectively describing the entire project from backend to frontend for various audiences. My experience enables me to translate complex requirements between business stakeholders and developers, utilizing my AGILE training to facilitate communication and collaboration throughout the process.";
+
+  useEffect(() => {
+    // Initial coin flip animation sequence
+    const animationSequence = () => {
+      // Start with logo, then flip to profile pic
+      setTimeout(() => setIsFlipped(true), 400);
+      // Flip back to logo
+      setTimeout(() => setIsFlipped(false), 800);
+      // Flip to profile pic again
+      setTimeout(() => setIsFlipped(true), 1200);
+      // Final flip back to logo
+      setTimeout(() => setIsFlipped(false), 1600);
+      // Mark animation as complete
+      setTimeout(() => setIsAnimating(false), 2000);
+    };
+
+    animationSequence();
+  }, []);
+
+  useEffect(() => {
+    let typingInterval = null;
+    
+    // Intersection Observer to trigger typing animation when about section is visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Reset and start typing animation
+            setTypedText('');
+            setIsTyping(true);
+            let currentIndex = 0;
+            
+            // Clear any existing interval
+            if (typingInterval) {
+              clearInterval(typingInterval);
+            }
+            
+            typingInterval = setInterval(() => {
+              if (currentIndex < lastParagraphFull.length) {
+                setTypedText(lastParagraphFull.substring(0, currentIndex + 1));
+                currentIndex++;
+              } else {
+                clearInterval(typingInterval);
+                setIsTyping(false);
+              }
+            }, 30); // Typing speed: 30ms per character
+          } else {
+            // Reset when section leaves view
+            if (typingInterval) {
+              clearInterval(typingInterval);
+            }
+            setTypedText('');
+            setIsTyping(false);
+          }
+        });
+      },
+      { threshold: 0 } // Trigger as soon as section starts to enter viewport
+    );
+
+    const aboutSection = document.querySelector('.about');
+    if (aboutSection) {
+      observer.observe(aboutSection);
+    }
+
+    return () => {
+      if (typingInterval) {
+        clearInterval(typingInterval);
+      }
+      if (aboutSection) {
+        observer.unobserve(aboutSection);
+      }
+    };
+  }, [lastParagraphFull]);
   const skillCategories = [
     {
       title: 'Frontend',
@@ -49,8 +129,21 @@ const Home = () => {
           </div>
         </div>
         <div className="hero-image">
-          <div className="hero-avatar">
-            <img src="/logo.png" alt="Maxwell Jones" className="avatar-logo" />
+          <div 
+            className={`hero-avatar ${isFlipped ? 'flipped' : ''} ${isAnimating ? 'animating' : ''}`}
+            onClick={() => {
+              if (!isAnimating) {
+                setIsFlipped(!isFlipped);
+              }
+            }}
+            style={{ cursor: isAnimating ? 'default' : 'pointer' }}
+          >
+            <div className="avatar-face avatar-front">
+              <img src="/logo.png" alt="Maxwell Jones" className="avatar-logo" />
+            </div>
+            <div className="avatar-face avatar-back">
+              <img src="/images/profilepic.jpg" alt="Maxwell Jones" className="avatar-profile" />
+            </div>
           </div>
         </div>
       </section>
@@ -81,7 +174,10 @@ const Home = () => {
                 As a full stack developer with a frontend-first mindset, I offer a unique blend of technical expertise and design sensibility. I excel at bridging the gap between robust architecture and seamless user experience—ensuring every solution is not only well-built but also intuitive and visually engaging.
               </p>
               <p>
-                While still developing, I regularly deliver technical and sales demonstrations, effectively describing the entire project from backend to frontend for various audiences. My experience enables me to translate complex requirements between business stakeholders and developers, utilizing my AGILE training to facilitate communication and collaboration throughout the process.
+                <span className="typing-text">
+                  {typedText}
+                  {isTyping && <span className="typing-cursor">|</span>}
+                </span>
               </p>
             </div>
           </div>
@@ -89,6 +185,7 @@ const Home = () => {
       </section>
 
       <section className="skills">
+        <CodeBackground />
         <div className="container">
           <h2 className="section-title">Skills & Technologies</h2>
           <div className="skills-grid">

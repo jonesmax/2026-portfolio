@@ -14,8 +14,8 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-
-  const [status, setStatus] = useState('idle');
+  const [copied, setCopied] = useState(false);
+  const emailAddress = 'maxwelljones2012@gmail.com';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,23 +25,43 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setStatus('sending');
     
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setStatus('idle'), 3000);
-    }, 1000);
+    // Create mailto link with form data
+    const recipient = 'maxwelljones2012@gmail.com';
+    const subject = encodeURIComponent(formData.subject);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    
+    const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${body}`;
+    
+    // Open mailto link
+    window.location.href = mailtoLink;
+    
+    // Optionally clear form after opening mailto
+    setFormData({ name: '', email: '', subject: '', message: '' });
+  };
+
+  const handleCopyEmail = async (e) => {
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText(emailAddress);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
   };
 
   const contactMethods = [
     {
       icon: <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail" style={{ width: 32, height: 32, objectFit: 'contain', verticalAlign: 'middle' }} />,
       title: 'Email',
-      value: 'maxwelljones2012@gmail.com',
-      link: 'mailto:maxwelljones2012@gmail.com'
+      value: emailAddress,
+      link: '#',
+      isEmail: true
     },
     {
       icon: <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style={{ width: 32, height: 32, objectFit: 'contain', verticalAlign: 'middle', filter: 'invert(1) grayscale(1) contrast(100)' }} />,
@@ -118,13 +138,9 @@ const Contact = () => {
             <button 
               type="submit" 
               className="btn btn-primary submit-btn"
-              disabled={status === 'sending'}
             >
-              {status === 'sending' ? 'Sending...' : status === 'success' ? 'Message Sent!' : 'Send Message'}
+              Open Email
             </button>
-            {status === 'success' && (
-              <p className="form-success">Thank you! I'll get back to you soon.</p>
-            )}
           </form>
         </div>
         <div className="contact-info">
@@ -136,19 +152,34 @@ const Contact = () => {
           </p>
           <div className="contact-methods">
             {contactMethods.map((method, index) => (
-              <a
-                key={index}
-                href={method.link}
-                className="contact-method"
-                target={method.link.startsWith('http') ? '_blank' : undefined}
-                rel={method.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-              >
-                <div className="contact-icon">{method.icon}</div>
-                <div className="contact-details">
-                  <h3>{method.title}</h3>
-                  <p>{method.value}</p>
-                </div>
-              </a>
+              <div key={index} className="contact-method-wrapper">
+                {method.isEmail ? (
+                  <button
+                    onClick={handleCopyEmail}
+                    className={`contact-method email-contact ${copied ? 'copied' : ''}`}
+                  >
+                    <span className="copy-label">Click to copy</span>
+                    <div className="contact-icon">{method.icon}</div>
+                    <div className="contact-details">
+                      <h3>{method.title}</h3>
+                      <p>{copied ? 'Copied!' : method.value}</p>
+                    </div>
+                  </button>
+                ) : (
+                  <a
+                    href={method.link}
+                    className="contact-method"
+                    target={method.link.startsWith('http') ? '_blank' : undefined}
+                    rel={method.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  >
+                    <div className="contact-icon">{method.icon}</div>
+                    <div className="contact-details">
+                      <h3>{method.title}</h3>
+                      <p>{method.value}</p>
+                    </div>
+                  </a>
+                )}
+              </div>
             ))}
           </div>
         </div>
