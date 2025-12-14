@@ -337,7 +337,7 @@ button.contact-method {
   right: 0.75rem;
   font-size: 0.7rem;
   font-weight: 500;
-  color: var(--primary-color);
+  color: var(--text-primary);
   opacity: 0.8;
   z-index: 2;
   pointer-events: none;

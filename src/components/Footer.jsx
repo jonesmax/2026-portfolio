@@ -14,13 +14,13 @@ const Footer = () => {
         <div className="footer-content">
           <p>&copy; {currentYear} Maxwell Jones. All rights reserved.</p>
           <div className="footer-links">
-            <a href="https://github.com/johndoe" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/jonesmax" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
-            <a href="https://linkedin.com/in/johndoe" target="_blank" rel="noopener noreferrer">
+            <a href="https://linkedin.com/in/maxwelljones2020" target="_blank" rel="noopener noreferrer">
               LinkedIn
             </a>
-            <a href="mailto:john.doe@example.com">
+            <a href="mailto:maxwelljones2012@gmail.com">
               Email
             </a>
           </div>

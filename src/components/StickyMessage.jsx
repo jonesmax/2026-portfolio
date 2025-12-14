@@ -30,12 +30,10 @@ const StickyMessage = () => {
         </button>
       ) : (
         <div className="quote-bubble">
-          <button className="close-button" onClick={handleMinimize} aria-label="Minimize message">
-            ×
-          </button>
+          <button className="close-button" onClick={handleMinimize} aria-label="Minimize message"></button>
           <div className="quote-mark">"</div>
           <p className="quote-text">
-            I'm eager to find a new team and would love to book a quick meeting to explain my story
+            I'm eager to join a new team and would love to book a quick meeting to explain my story
           </p>
           <Link to="/contact" className="quote-link">
             Let's Connect →

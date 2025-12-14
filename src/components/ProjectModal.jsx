@@ -61,9 +61,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose} aria-label="Close modal">
-          ×
-        </button>
+        <button className="modal-close" onClick={onClose} aria-label="Close modal"></button>
         
         <div className="modal-header">
           <div className="modal-icon">{project.image}</div>
@@ -85,7 +83,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                     onClick={prevImage}
                     aria-label="Previous image"
                   >
-                    ‹
+                    <span>‹</span>
                   </button>
                   <img 
                     src={project.images[currentImageIndex]} 
@@ -97,7 +95,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                     onClick={nextImage}
                     aria-label="Next image"
                   >
-                    ›
+                    <span>›</span>
                   </button>
                 </div>
                 {project.images.length > 1 && (

@@ -23,12 +23,8 @@ const Home = () => {
       setTimeout(() => setIsFlipped(true), 400);
       // Flip back to logo
       setTimeout(() => setIsFlipped(false), 800);
-      // Flip to profile pic again
-      setTimeout(() => setIsFlipped(true), 1200);
-      // Final flip back to logo
-      setTimeout(() => setIsFlipped(false), 1600);
       // Mark animation as complete
-      setTimeout(() => setIsAnimating(false), 2000);
+      setTimeout(() => setIsAnimating(false), 1000);
     };
 
     animationSequence();
