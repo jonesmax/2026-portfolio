@@ -94,7 +94,7 @@ const Navigation = () => {
             </li>
             <li>
               <a 
-                href="/public/Maxwell Jones Resume 2026.pdf" 
+                href="/Maxwell%20Jones%20Resume%202026.pdf" 
                 className="nav-link nav-resume"
                 target="_blank"
                 rel="noopener noreferrer"
