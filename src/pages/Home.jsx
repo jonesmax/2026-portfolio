@@ -196,7 +196,6 @@ const Home = () => {
                 <span className="skill-tag">HTML5</span>
                 <span className="skill-tag">CSS3</span>
                 <span className="skill-tag">Redux</span>
-                <span className="skill-tag">Zustand</span>
                 <span className="skill-tag">GraphQL (Client)</span>
                 <span className="skill-tag">Webpack</span>
                 <span className="skill-tag">Vite</span>
@@ -222,7 +221,6 @@ const Home = () => {
                 <span className="skill-tag">Java</span>
                 <span className="skill-tag">PostgreSQL / MySQL / MongoDB</span>
                 <span className="skill-tag">Redis</span>
-                <span className="skill-tag">Elasticsearch</span>
                 <span className="skill-tag">REST APIs</span>
                 <span className="skill-tag">GraphQL (Server)</span>
                 <span className="skill-tag">WebSockets</span>
