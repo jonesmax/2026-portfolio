@@ -190,40 +190,89 @@ const Home = () => {
               <div className="skill-tags">
                 <span className="skill-tag">JavaScript</span>
                 <span className="skill-tag">React</span>
-                <span className="skill-tag">HTML5/CSS</span>
+                <span className="skill-tag">Next.js</span>
+                <span className="skill-tag">Vue.js</span>
+                <span className="skill-tag">Angular</span>
+                <span className="skill-tag">HTML5</span>
+                <span className="skill-tag">CSS3</span>
+                <span className="skill-tag">Redux</span>
+                <span className="skill-tag">Zustand</span>
+                <span className="skill-tag">GraphQL (Client)</span>
+                <span className="skill-tag">Webpack</span>
+                <span className="skill-tag">Vite</span>
+                <span className="skill-tag">Responsive Design</span>
                 <span className="skill-tag">Accessibility</span>
+                <span className="skill-tag">Figma</span>
+                <span className="skill-tag">Adobe Photoshop</span>
+                <span className="skill-tag">Adobe Illustrator</span>
               </div>
             </div>
             <div className="skill-category">
               <h3 className="skill-category-title">Backend</h3>
               <div className="skill-tags">
                 <span className="skill-tag">Node.js</span>
-                <span className="skill-tag">PostgreSQL</span>
-                <span className="skill-tag">MongoDB</span>
+                <span className="skill-tag">Express.js</span>
+                <span className="skill-tag">Nest.js</span>
                 <span className="skill-tag">Python</span>
+                <span className="skill-tag">Django</span>
                 <span className="skill-tag">C# / .NET</span>
-                <span className="skill-tag">PHP / Laravel</span>
+                <span className="skill-tag">ASP.NET Core</span>
+                <span className="skill-tag">PHP</span>
+                <span className="skill-tag">Laravel</span>
+                <span className="skill-tag">Java</span>
+                <span className="skill-tag">PostgreSQL / MySQL / MongoDB</span>
+                <span className="skill-tag">Redis</span>
+                <span className="skill-tag">Elasticsearch</span>
                 <span className="skill-tag">REST APIs</span>
+                <span className="skill-tag">GraphQL (Server)</span>
+                <span className="skill-tag">WebSockets</span>
+                <span className="skill-tag">Microservices</span>
+                <span className="skill-tag">Serverless</span>
+                <span className="skill-tag">AWS Lambda</span>
               </div>
             </div>
             <div className="skill-category">
               <h3 className="skill-category-title">DevOps & Tools</h3>
               <div className="skill-tags">
-                <span className="skill-tag">Git / GitHub</span>
-                <span className="skill-tag">CI/CD (GitHub Actions, Azure DevOps)</span>
+                <span className="skill-tag">GitHub</span>
+                <span className="skill-tag">Bitbucket</span>
+                <span className="skill-tag">Docker</span>
+                <span className="skill-tag">Kubernetes</span>
+                <span className="skill-tag">CI/CD</span>
+                <span className="skill-tag">GitHub Actions</span>
+                <span className="skill-tag">Azure DevOps</span>
+                <span className="skill-tag">Jenkins</span>
+                <span className="skill-tag">AWS / Azure / Google Cloud Platform</span>
+                <span className="skill-tag">npm</span>
+                <span className="skill-tag">yarn</span>
+                <span className="skill-tag">pnpm</span>
+                <span className="skill-tag">Webpack</span>
+                <span className="skill-tag">Postman</span>
                 <span className="skill-tag">Jira</span>
+                <span className="skill-tag">Confluence</span>
                 <span className="skill-tag">Agile</span>
+                <span className="skill-tag">Scrum</span>
+                <span className="skill-tag">Kanban</span>
                 <span className="skill-tag">Figma</span>
-                <span className="skill-tag">Photoshop</span>
               </div>
             </div>
             <div className="skill-category">
               <h3 className="skill-category-title">Other / Integration</h3>
               <div className="skill-tags">
                 <span className="skill-tag">Decisions low code platform</span>
+                <span className="skill-tag">Low Code Development</span>
+                <span className="skill-tag">Stripe</span>
+                <span className="skill-tag">PayPal Integration</span>
+                <span className="skill-tag">Payment Gateways</span>
+                <span className="skill-tag">OAuth Integration</span>
+                <span className="skill-tag">SSO</span>
                 <span className="skill-tag">Technical & Sales Demos</span>
+                <span className="skill-tag">Client Presentations</span>
                 <span className="skill-tag">Requirements Documentation</span>
-                <span className="skill-tag">UI/UX & Design Systems</span>
+                <span className="skill-tag">Technical Writing</span>
+                <span className="skill-tag">Code Documentation</span>
+                <span className="skill-tag">SEO</span>
+                <span className="skill-tag">Analytics</span>
               </div>
             </div>
           </div>

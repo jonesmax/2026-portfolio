@@ -11,7 +11,7 @@
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 1.5rem;
+  padding: 4rem 2.5rem;
   gap: 4rem;
   position: relative;
   width: 100%;
@@ -348,9 +348,9 @@
   position: relative;
   overflow: hidden;
   /* Always same width */
-  flex: 0 0 340px;
+  flex: 0 0 500px;
   width: 340px;
-  max-width: 340px;
+  max-width: 500px;
   min-width: 340px;
   min-height: 330px;
   box-sizing: border-box;
